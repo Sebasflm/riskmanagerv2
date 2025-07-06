@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados - {{ domain }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll(".tab-content > div");
+            tabs.forEach(div => div.style.display = "none");
+            document.getElementById(tabId).style.display = "block";
+        }
+        window.onload = () => showTab('activos');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Resultados para: {{ domain }}</h2>
+        <div class="tabs">
+            <div class="tab" onclick="showTab('activos')">Activos encontrados</div>
+            <div class="tab" onclick="showTab('valoracion')">Valoración de activos</div>
+            <div class="tab" onclick="showTab('riesgos')">Identificación de riesgos</div>
+            <div class="tab" onclick="showTab('tratamiento')">Tratamiento</div>
+            <div class="tab" onclick="showTab('residual')">Riesgo residual</div>
+        </div>
+        <div class="tab-content">
+            <div id="activos"><p>[Activos encontrados aparecerán aquí]</p></div>
+            <div id="valoracion" style="display:none;"><p>[Valoración CIAxF aparecerá aquí]</p></div>
+            <div id="riesgos" style="display:none;"><p>[Riesgos identificados aparecerán aquí]</p></div>
+            <div id="tratamiento" style="display:none;"><p>[Tratamientos sugeridos aparecerán aquí]</p></div>
+            <div id="residual" style="display:none;"><p>[Riesgo residual aparecerá aquí]</p></div>
+        </div>
+    </div>
+</body>
+</html>
